@@ -5,9 +5,12 @@ def count_digits(n):
         return 1
     n = abs(n)
     return math.floor(math.log10(n)) + 1
-
         
 def karat(x, y):
+        if x < 10 and y < 10:
+                return x*y
+        
+        print(f'x: {x}\ny: {y}\n')
         n = count_digits(x if x > y else y) # number of digits
         base = 10 # base 10
         a = x // (10 ** (n // 2)) 
@@ -25,14 +28,17 @@ def karat(x, y):
         g = (a+b)*(c+d)
         #4: h = g-e-f
         h = g-e-f
+        print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
         #5: (10^4) *e + (10^2) * h + f 
-        return (base**n) * e + (base**2) * h + f
+        return (base**n) * e + (base**(n//2)) * h + f
        
 
 print(4321 // 100) #100 is 10^2
 print(count_digits(4321))
 
 print(karat(1234, 5678)) #expected: 7006652
+print(karat(12345, 67890)) # 838102050
+print(karat(123456, 789123)) # 97421969088
+print(karat(12345678910, 10987654321)) # 1.3565005e+20
 
-
-#karat(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627)
+print(karat(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627))
