@@ -29,7 +29,6 @@ def karat(x, y):
         return (base**n) * e + (base**2) * h + f
        
 
-
 print(4321 // 100) #100 is 10^2
 print(count_digits(4321))
 
