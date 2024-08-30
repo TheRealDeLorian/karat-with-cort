@@ -4,7 +4,7 @@ def karat(x, y):
         if x < 10 and y < 10:
                 return x*y
         
-        print(f'x: {x}\ny: {y}\n')
+        # print(f'x: {x}\ny: {y}\n')
         n = len(str(x if x > y else y)) # number of digits
         base = 10 # base 10
         m = math.ceil(n / 2)
@@ -14,17 +14,17 @@ def karat(x, y):
         c = y // (10 ** m)
         d = y % (10 ** m)
         
-        print(f'm: {m}\nn: {n}\nbase: {base}\na: {a}\nb: {b}\nc: {c}\nd: {d}\n')
+        # print(f'm: {m}\nn: {n}\nbase: {base}\na: {a}\nb: {b}\nc: {c}\nd: {d}\n')
         
         #step 1: e = a*c
-        e = a*c
+        e = karat(a,c)
         #step 2: f = b*d
-        f = b*d
+        f = karat(b,d)
         #step 3: g = (a+b)*(c+d) 
-        g = (a+b)*(c+d)
+        g = karat(a+b, c+d)
         #4: h = g-e-f
         h = g-e-f
-        print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
+        # print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
         #5: (10^4) *e + (10^2) * h + f 
         # print(f'e: {e}')
         # print(base**n)
@@ -34,7 +34,6 @@ def karat(x, y):
         return (e*(base**m)**2)  + (h*(base**m)) + f
        
 
-print(4321 // 100) #100 is 10^2
 
 print(karat(1234, 5678)) #expected: 7006652
 print(karat(12345, 6789)) # 83810205
