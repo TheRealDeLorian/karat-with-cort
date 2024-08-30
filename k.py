@@ -10,7 +10,7 @@ def karat(x, y):
         if x < 10 and y < 10:
                 return x*y
         
-        print(f'x: {x}\ny: {y}\n')
+        # print(f'x: {x}\ny: {y}\n')
         n = count_digits(x if x > y else y) # number of digits
         base = 10 # base 10
         a = x // (10 ** (n // 2)) 
@@ -18,7 +18,7 @@ def karat(x, y):
         c = y // (10 ** (n // 2))
         d = y % (10 ** (n // 2))
         
-        print(f'n: {n}\nbase: {base}\na: {a}\nb: {b}\nc: {c}\nd: {d}\n')
+        # print(f'n: {n}\nbase: {base}\na: {a}\nb: {b}\nc: {c}\nd: {d}\n')
         
         #step 1: e = a*c
         e = a*c
@@ -28,7 +28,7 @@ def karat(x, y):
         g = (a+b)*(c+d)
         #4: h = g-e-f
         h = g-e-f
-        print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
+        # print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
         #5: (10^4) *e + (10^2) * h + f 
         return (base**n) * e + (base**(n//2)) * h + f
        
