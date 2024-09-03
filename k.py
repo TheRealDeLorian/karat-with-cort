@@ -29,24 +29,18 @@ def karat(x, y):
         # print(f"e: {e}, h: {h} ")
         basepowm = (base**m)
 
-        # bigNum = (base**m)**2
-        # bigNumWithoutBase = bigNum / base
-        # for x in range (bigNumWithoutBase):
-        #         e = (e<<3) + (e<<1) #multiplies by 10 once.
+        for x in range (m*2):
+                e = (e<<3) + (e<<1) #multiplies by 10 once.
                 
         for x in range (m):
                 h = (h<<3) + (h<<1) #multiplies by 10 once.
         
-        # return (e*(base**m)**2)  + (h*(base**m)) + f
-        return ((e*(base**m)**2) + h) + f
-        # i = karat(e, basepowm**2) + karat(h, basepowm)
-        # return (i + f)
+        # return (e*((base**m)**2))  + (h*(base**m)) + f
+        return (e + h) + f
        
-
 
 print(karat(1234, 5678)) #expected: 7006652
 print(karat(12345, 6789)) # 83810205
 print(karat(123456, 789123)) # 97421969088
 print(karat(12345678910, 10987654321)) # 1.3565005e+20
-
-print(karat(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627))
+# print(karat(3141592653589793238462643383279502884197169399375105820974944592, 2718281828459045235360287471352662497757247093699959574966967627))
