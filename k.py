@@ -9,10 +9,10 @@ def karat(x, y):
         base = 10 # base 10
         m = math.ceil(n / 2)
         # print(f'n: {n}\nm: {m}')
-        a = x // (10 ** m) 
-        b = x % (10 ** m)
-        c = y // (10 ** m)
-        d = y % (10 ** m)
+        a = x // (base ** m) 
+        b = x % (base ** m)
+        c = y // (base ** m)
+        d = y % (base ** m)
         
         # print(f'm: {m}\nn: {n}\nbase: {base}\na: {a}\nb: {b}\nc: {c}\nd: {d}\n')
         
@@ -22,16 +22,25 @@ def karat(x, y):
         f = karat(b,d)
         #step 3: g = (a+b)*(c+d) 
         g = karat(a+b, c+d)
-        #4: h = g-e-f
+        #step 4: h = g-e-f
         h = g-e-f
         # print(f'e: {e}\nf: {f}\ng: {g}\nh: {h}\n')
-        #5: (10^4) *e + (10^2) * h + f 
-        # print(f'e: {e}')
-        # print(base**n)
-        # print(h)
-        # print(base**m)
-        # print(f)
-        return (e*(base**m)**2)  + (h*(base**m)) + f
+        #step 5: (10^4) *e + (10^2) * h + f 
+        # print(f"e: {e}, h: {h} ")
+        basepowm = (base**m)
+
+        # bigNum = (base**m)**2
+        # bigNumWithoutBase = bigNum / base
+        # for x in range (bigNumWithoutBase):
+        #         e = (e<<3) + (e<<1) #multiplies by 10 once.
+                
+        for x in range (m):
+                h = (h<<3) + (h<<1) #multiplies by 10 once.
+        
+        # return (e*(base**m)**2)  + (h*(base**m)) + f
+        return ((e*(base**m)**2) + h) + f
+        # i = karat(e, basepowm**2) + karat(h, basepowm)
+        # return (i + f)
        
 
 
